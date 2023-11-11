@@ -1,11 +1,47 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Mi Formulario</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <div class="container">
+        <div class="Incio">
+            <input type="text" class="InicioInput" placeholder="Formulario sin nombre">
+
+            <div>
+                <input type="text" class="DescripcionInput" placeholder="Descripción de formulario">
+            </div>
+        </div>
+
+        <form id="miFormulario">
+            <div class="tituloPreguntaContainer">
+                <label for="tipoPregunta">Tipo de pregunta:</label>
+                <select id="tipoPregunta" onchange="cambiarTipoPregunta()">
+                    <option value="tipo1">Pregunta tipo 1</option>
+                    <option value="tipo2">Pregunta tipo 2</option>
+                    <option value="tipo3">Pregunta tipo 3</option>
+                </select>
+            </div>
+
+            <div id="formatoPregunta" class="formatoPregunta"></div>
+
+            <div id="preguntasAdicionales"></div>
+
+            <button type="button" onclick="agregarPregunta()">+ Agregar Pregunta</button>
+
+            <button type="submit" onclick="mostrarRespuestas()">Enviar</button>
+            
+        </form>
+
+        <div id="resultados"></div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
