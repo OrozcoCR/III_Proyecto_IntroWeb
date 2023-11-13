@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="container">
+        <h1>Crea un Nuevo Formulario</h1>
         <div class="Incio">
-            <input type="text" class="InicioInput" placeholder="Formulario sin nombre">
+            <input id="nombreForm" type="text" class="InicioInput" placeholder="Formulario sin nombre">
 
             <div>
-                <input type="text" class="DescripcionInput" placeholder="Descripción de formulario">
+                <input id="descripcionForm" type="text" class="DescripcionInput" placeholder="Descripción de formulario">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
 
             <button type="button" onclick="agregarPregunta()">+ Agregar Pregunta</button>
 
-            <button type="submit" onclick="mostrarRespuestas()">Enviar</button>
+            <button type="submit" onclick="guardarFormulario()">Crear Formulario</button>
             
         </form>
 

@@ -118,7 +118,31 @@ function cambiarTipoPregunta() {
     });
 }
 
+function guardarFormulario() {
+    // Obtener referencias a elementos del DOM
+    var nombre = document.getElementById('nombreForm').value;
+    var descripcion = document.getElementById('descripcionForm').value;
+    var formulario = document.getElementById('miFormulario').innerHTML;
 
+    // Crear un objeto con la información del formulario
+    var formData = {
+        nombre: nombre,
+        descripcion: descripcion,
+        contenidoHTML: formulario
+    };
+
+    // Enviar datos al backend utilizando XMLHttpRequest o Fetch API
+    fetch('guardarFormulario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(formData)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error al enviar datos al backend:', error));
+}
 
 function mostrarRespuestas() {
     var resultadosContainer = document.getElementById("resultados");
