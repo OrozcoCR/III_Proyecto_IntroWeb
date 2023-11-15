@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <form id="miFormulario">
+
+        <div class="tituloPreguntaContainer">
+            <!-- Your content here -->
+        </div>
+
+        <div id="formatoPregunta" class="formatoPregunta">
+            <!-- Your content here -->
+        </div>
+
+        <div id="preguntasAdicionales">
+            <div class="preguntaContainer">
+                <label class="hideable-label" hidden>Tipo de pregunta:
+                    <select name="tipoPregunta1" id="tipoPregunta1" hidden>
+                        <option value="tipo1">Pregunta tipo 1</option>
+                        <option value="tipo2">Pregunta tipo 2</option>
+                        <option value="tipo3">Pregunta tipo 3</option>
+                    </select>
+                </label>
+                <div id="pregunta1" class="formatoPregunta">
+                    <label>Nombre de la pregunta 1:
+                        <input type="text" id="nombre1" name="nombre1" class="tituloPregunta" required placeholder="Pregunta sin titulo">
+                    </label>
+                    <label>Pregunta:
+                        <input type="text" id="pregunta1" name="pregunta1" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
+                    </label>
+                    <label>Respuesta (máx. 30 palabras):
+                        <textarea id="respuesta1" name="respuesta1" rows="4" maxlength="150" placeholder="Escribe tu respuesta aquí"></textarea>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Add more question sets as needed (e.g., pregunta2, pregunta3, etc.) -->
+
+        </div>
+
+        <button type="button" onclick="agregarPregunta()" hidden>+ Agregar Pregunta</button>
+
+        <button type="submit" onclick="guardarFormulario()" hidden>Crear Formulario</button>
+
+    </form>
+
+    <!-- Include your JavaScript functions here if they are not already loaded -->
+
+</body>
+</html>

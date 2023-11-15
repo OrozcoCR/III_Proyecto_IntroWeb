@@ -128,7 +128,7 @@ function guardarFormulario() {
     var formData = {
         nombre: nombre,
         descripcion: descripcion,
-        contenidoHTML: formulario
+        contenidoHTML: formCliente()
     };
 
     // Enviar datos al backend utilizando XMLHttpRequest o Fetch API
@@ -142,6 +142,25 @@ function guardarFormulario() {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error al enviar datos al backend:', error));
+}
+
+function formCliente() {
+    // Clone the entire form
+    var clonedForm = document.getElementById('miFormulario').cloneNode(true);
+
+    // Hide labels and selects with a specific class within .preguntaContainer in the cloned form
+    clonedForm.querySelectorAll('.hideable-label, select').forEach(function (element) {
+        element.setAttribute('hidden', 'true');
+    });
+
+    // Hide the two buttons at the bottom of the cloned form
+    clonedForm.querySelectorAll('button').forEach(function (button) {
+        button.setAttribute('hidden', 'true');
+    });
+
+    // Retrieve the modified HTML of the cloned form, including hidden attributes
+    return clonedForm.outerHTML;
+
 }
 
 function mostrarRespuestas() {
