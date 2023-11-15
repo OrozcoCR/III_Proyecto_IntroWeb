@@ -59,31 +59,38 @@ function cambiarTipoPregunta() {
         if (tipoSeleccionado === "tipo1") {
             // Primer formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:</label>
+                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
-                
-                <label for="pregunta${index + 1}">Pregunta:</label>
-                <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
+                </label>
 
-                <label for="respuesta${index + 1}">Respuesta (máx. 30 palabras):</label>
-                <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="4" maxlength="150" placeholder="Escribe tu respuesta aquí"></textarea>`;
+                <label for="pregunta${index + 1}">Pregunta:
+                <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
+                </label>
+
+                <label for="respuesta${index + 1}">Respuesta (máx. 30 palabras):
+                <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="4" maxlength="150" placeholder="Escribe tu respuesta aquí"></textarea>
+                </label>`;
         } else if (tipoSeleccionado === "tipo2") {
             // Segundo formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:</label>
+                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
-                
-                <label for="pregunta${index + 1}">Pregunta:</label>
-                <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
+                </label>
 
-                <label for="respuesta${index + 1}">Respuesta larga (máx. 1000 palabras):</label>
-                <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="10" maxlength="5000" placeholder="Escribe tu respuesta aquí"></textarea>`;
+                <label for="pregunta${index + 1}">Pregunta:
+                <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
+                </label>
+
+                <label for="respuesta${index + 1}">Respuesta larga (máx. 1000 palabras):
+                <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="10" maxlength="5000" placeholder="Escribe tu respuesta aquí"></textarea>
+                </label>`;
         } else if (tipoSeleccionado === "tipo3") {
             // Tercer formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="pregunta${index + 1}">Nombre de la pregunta ${index + 1}:</label>
+                <label for="pregunta${index + 1}">Nombre de la pregunta ${index + 1}:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta aquí">
-
+                </label>
+                
                 <label>Opciones de respuesta:</label>
                 <ul>
                     <div>
