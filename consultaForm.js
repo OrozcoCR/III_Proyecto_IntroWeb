@@ -1,54 +1,56 @@
+var formData; // Variable to store form data
 
-document.addEventListener('DOMContentLoaded', function() {
-    cargarFormularios();
-});
 
-function cargarFormularios() {
-    fetch('formularios.json')
-        .then(response => response.json())
-        .then(data => mostrarFormularios(data))
-        .catch(error => console.error('Error al cargar formularios:', error));
-}
+  // Obtener el id del formulario del parámetro en la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const formDataJSON = urlParams.get("formId");
 
-function mostrarFormularios(formularios) {
-    var listaHTML = '<ul>';
-    formularios.forEach(formulario => {
-        listaHTML += `<li><button onclick="mostrarFormulario('${formulario.nombre}')">${formulario.nombre}</button></li>`;
-    });
-    listaHTML += '</ul>';
-    document.getElementById('formularios-lista').innerHTML = listaHTML;
-}
+  // Crear una instancia de XMLHttpRequest
+  var xhr = new XMLHttpRequest();
 
-function mostrarFormulario(nombreFormulario) {
-    
-    fetch('formularios.json')
-        .then(response => response.json())
-        .then(data => mostrarRespuestas(data, nombreFormulario))
-        .catch(error => console.error('Error al cargar respuestas:', error));
-}
+  // Configurar la solicitud AJAX
+  xhr.open("GET", "obtenerFormulario.php?formId=" + formDataJSON, true);
 
-function mostrarRespuestas(formularios, nombreFormulario) {
-    var formularioSeleccionado = formularios.find(formulario => formulario.nombre === nombreFormulario);
+  xhr.onreadystatechange = () => {
+    // Manejar cambios de estado, si es necesario
+  };
 
-    if (formularioSeleccionado) {
-        var respuestasHTML = '<h2>' + formularioSeleccionado.nombre + '</h2>';
-        respuestasHTML += '<p>Descripción: ' + formularioSeleccionado.descripcion + '</p>';
-        
-        
-        var contenidoHTML = formularioSeleccionado.contenidoHTML;
-        respuestasHTML += '<div id="preguntasFormulario">' + contenidoHTML + '</div>';
+  // Configurar el manejo de la respuesta
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Parsear la respuesta JSON
+      formData = JSON.parse(xhr.responseText);
 
-        document.getElementById('formulario-respuestas').innerHTML = respuestasHTML;
+      // Añadir los detalles del formulario a la página
+      const formDetailContainer = document.getElementById("form-detail-container");
 
-        var enviarRespuestasBtn = document.createElement('button');
-        enviarRespuestasBtn.textContent = 'Enviar Respuestas';
-        enviarRespuestasBtn.addEventListener('click', function() {
-           
-        });
+      const detailContainer = document.createElement("div");
+      detailContainer.className = "form-details";
 
-        document.getElementById('formulario-respuestas').appendChild(enviarRespuestasBtn);
+      // Display form name and description
+      const formName = document.createElement("h2");
+      formName.textContent = formData.nombre;
+
+      const formDescription = document.createElement("p");
+      formDescription.textContent = formData.descripcion;
+
+      // Display the HTML content as it comes
+      const formHTMLContent = document.createElement("div");
+      formHTMLContent.innerHTML = formData.contenidoHTML;
+
+      // Agrega los elementos al container
+      formDetailContainer.appendChild(detailContainer);
+      detailContainer.appendChild(formName);
+      detailContainer.appendChild(formDescription);
+      formDetailContainer.appendChild(formHTMLContent);
+    } else {
+      console.error("Error en la solicitud: " + xhr.status);
     }
-}
+  };
+
+  // Enviar la solicitud AJAX
+  xhr.send();
+
 
 
 

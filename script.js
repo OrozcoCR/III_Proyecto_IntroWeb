@@ -12,7 +12,6 @@ function agregarPregunta() {
     // Crear campo de selección de tipo de pregunta
     var tipoPreguntaLabel = document.createElement("label");
     tipoPreguntaLabel.textContent = "Tipo de pregunta:";
-    preguntaContainer.appendChild(tipoPreguntaLabel);
 
     var tipoPreguntaSelect = document.createElement("select");
     tipoPreguntaSelect.name = "tipoPregunta" + (preguntaCounter + 1);
@@ -26,7 +25,8 @@ function agregarPregunta() {
         option.text = opcionesTipo[i];
         tipoPreguntaSelect.appendChild(option);
     }
-    preguntaContainer.appendChild(tipoPreguntaSelect);
+    tipoPreguntaLabel.appendChild(tipoPreguntaSelect);
+    preguntaContainer.appendChild(tipoPreguntaLabel);
 
     // Clona el contenedor de formato de pregunta actual
     var formatoPregunta = document.getElementById("formatoPregunta");
@@ -59,35 +59,35 @@ function cambiarTipoPregunta() {
         if (tipoSeleccionado === "tipo1") {
             // Primer formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:
+                <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
                 </label>
 
-                <label for="pregunta${index + 1}">Pregunta:
+                <label>Pregunta:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
                 </label>
 
-                <label for="respuesta${index + 1}">Respuesta (máx. 30 palabras):
+                <label>Respuesta (máx. 30 palabras):
                 <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="4" maxlength="150" placeholder="Escribe tu respuesta aquí"></textarea>
                 </label>`;
         } else if (tipoSeleccionado === "tipo2") {
             // Segundo formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="nombre${index + 1}">Nombre de la pregunta ${index + 1}:
+                <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
                 </label>
 
-                <label for="pregunta${index + 1}">Pregunta:
+                <label>Pregunta:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
                 </label>
 
-                <label for="respuesta${index + 1}">Respuesta larga (máx. 1000 palabras):
+                <label>Respuesta larga (máx. 1000 palabras):
                 <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="10" maxlength="5000" placeholder="Escribe tu respuesta aquí"></textarea>
                 </label>`;
         } else if (tipoSeleccionado === "tipo3") {
             // Tercer formato de pregunta
             formatoPregunta.innerHTML += `
-                <label for="pregunta${index + 1}">Nombre de la pregunta ${index + 1}:
+                <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta aquí">
                 </label>
                 
@@ -156,8 +156,12 @@ function formCliente() {
     var clonedForm = document.getElementById('miFormulario').cloneNode(true);
 
     // Hide labels and selects with a specific class within .preguntaContainer in the cloned form
-    clonedForm.querySelectorAll('.hideable-label, select').forEach(function (element) {
+    clonedForm.querySelectorAll('select').forEach(function (element) {
         element.setAttribute('hidden', 'true');
+    });
+
+    clonedForm.querySelectorAll('.hideable-label').forEach(function (element) {
+        element.delete();
     });
 
     // Hide the two buttons at the bottom of the cloned form
@@ -165,9 +169,12 @@ function formCliente() {
         button.setAttribute('hidden', 'true');
     });
 
+    var sendBtn = document.createElement('button');
+    sendBtn.innerText = 'Registrar respuesta';
+    clonedForm.appendChild(sendBtn);
+
     // Retrieve the modified HTML of the cloned form, including hidden attributes
     return clonedForm.outerHTML;
-
 }
 
 function mostrarRespuestas() {

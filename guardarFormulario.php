@@ -1,9 +1,9 @@
 <?php
 
 // Obtener los datos del formulario desde la solicitud POST
-$nombre = $_POST['nombre'];
-$descripcion = $_POST['descripcion'];
-$contenidoHTML = $_POST['contenidoHTML'];
+$nombre = $_REQUEST['nombre'];
+$descripcion = $_REQUEST['descripcion'];
+$contenidoHTML = $_REQUEST['contenidoHTML'];
 
 // Crear un objeto con la información del formulario
 $formData = [
