@@ -33,7 +33,7 @@ function agregarPregunta() {
     var preguntaClonada = formatoPregunta.cloneNode(true);
 
     // Asigna un identificador único al contenedor clonado
-    preguntaClonada.id = "pregunta" + (preguntaCounter + 1);
+    preguntaClonada.id = "preguntaX" + (preguntaCounter + 1);
 
     // Agrega la pregunta clonada al contenedor de preguntas adicionales
     preguntaContainer.appendChild(preguntaClonada);
@@ -59,6 +59,8 @@ function cambiarTipoPregunta() {
         if (tipoSeleccionado === "tipo1") {
             // Primer formato de pregunta
             formatoPregunta.innerHTML += `
+                <div id="tipo-${tipoSeleccionado}"> </div>
+                
                 <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
                 </label>
@@ -73,20 +75,22 @@ function cambiarTipoPregunta() {
         } else if (tipoSeleccionado === "tipo2") {
             // Segundo formato de pregunta
             formatoPregunta.innerHTML += `
-                <label>Nombre de la pregunta ${index + 1}:
+            <div id="tipo-${tipoSeleccionado}"> </div>
+            <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="nombre${index + 1}" name="nombre${index + 1}" class="tituloPregunta" required placeholder="Pregunta sin titulo">
-                </label>
-
-                <label>Pregunta:
+            </label>
+    
+            <label>Pregunta:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta corta aquí">
-                </label>
-
-                <label>Respuesta larga (máx. 1000 palabras):
-                <textarea id="respuesta${index + 1}" name="respuesta${index + 1}" rows="10" maxlength="5000" placeholder="Escribe tu respuesta aquí"></textarea>
-                </label>`;
+            </label>
+    
+            <label>Respuesta numérica:
+                <input type="number" id="respuesta${index + 1}" name="respuesta${index + 1}"  placeholder="Ingresa tu respuesta numérica">
+            </label>`;
         } else if (tipoSeleccionado === "tipo3") {
             // Tercer formato de pregunta
             formatoPregunta.innerHTML += `
+                <div id="tipo-${tipoSeleccionado}"> </div>
                 <label>Nombre de la pregunta ${index + 1}:
                 <input type="text" id="pregunta${index + 1}" name="pregunta${index + 1}" class="preguntaCorta" required placeholder="Escribe tu pregunta aquí">
                 </label>
@@ -94,28 +98,28 @@ function cambiarTipoPregunta() {
                 <label>Opciones de respuesta:</label>
                 <ul>
                     <div>
-                        <input type="text" name="enunciado1${index + 1}" placeholder="Pregunta sin titulo" class="enunciado"> 
+                        <input type="text" name="enunciado1${index + 1}" id="respuesta1" placeholder="Pregunta sin titulo" class="enunciado"> 
                     </div>
                     <label>
                         <input type="radio" name="opcion${index + 1}" value="opcion1"> 
                     </label>
 
                     <div>
-                        <input type="text" name="enunciado2${index + 1}" placeholder="Pregunta sin titulo" class="enunciado"> 
+                        <input type="text" name="enunciado2${index + 1}" id="respuesta2" placeholder="Pregunta sin titulo" class="enunciado"> 
                     </div>
                     <label class="resp">
                         <input type="radio" name="opcion${index + 1}" value="opcion2"> 
                     </label>
 
                     <div>
-                        <input type="text" name="enunciado3${index + 1}" placeholder="Pregunta sin titulo" class="enunciado"> 
+                        <input type="text" name="enunciado3${index + 1}" id="respuesta3" placeholder="Pregunta sin titulo" class="enunciado"> 
                     </div>
                     <label>
                         <input type="radio" name="opcion${index + 1}" value="opcion3"> 
                     </label>
 
                     <div>
-                        <input type="text" name="enunciado4${index + 1}" placeholder="Pregunta sin titulo" class="enunciado"> 
+                        <input type="text" name="enunciado4${index + 1}" id="respuesta4" placeholder="Pregunta sin titulo" class="enunciado"> 
                     </div>
                     <label>
                         <input type="radio" name="opcion${index + 1}" value="opcion4"> 
@@ -129,7 +133,7 @@ function guardarFormulario() {
     // Obtener referencias a elementos del DOM
     var nombre = document.getElementById('nombreForm').value;
     var descripcion = document.getElementById('descripcionForm').value;
-    var formulario = document.getElementById('miFormulario').innerHTML;
+    console.log(formCliente);
 
     // Crear un objeto con la información del formulario
     var formData = {
@@ -146,51 +150,173 @@ function guardarFormulario() {
         },
         body: new URLSearchParams(formData)
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error al enviar datos al backend:', error));
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error al enviar datos al backend:', error));
 }
+
 
 function formCliente() {
-    // Clone the entire form
-    var clonedForm = document.getElementById('miFormulario').cloneNode(true);
+    var y = document.createElement('form');
 
-    // Hide labels and selects with a specific class within .preguntaContainer in the cloned form
-    clonedForm.querySelectorAll('select').forEach(function (element) {
-        element.setAttribute('hidden', 'true');
-    });
-
-    clonedForm.querySelectorAll('.hideable-label').forEach(function (element) {
-        element.delete();
-    });
-
-    // Hide the two buttons at the bottom of the cloned form
-    clonedForm.querySelectorAll('button').forEach(function (button) {
-        button.setAttribute('hidden', 'true');
-    });
-
-    var sendBtn = document.createElement('button');
-    sendBtn.innerText = 'Registrar respuesta';
-    clonedForm.appendChild(sendBtn);
-
-    // Retrieve the modified HTML of the cloned form, including hidden attributes
-    return clonedForm.outerHTML;
-}
-
-function mostrarRespuestas() {
-    var resultadosContainer = document.getElementById("resultados");
-    resultadosContainer.innerHTML = ""; // Limpiar contenido anterior
-
-    // Recorrer las respuestas
     for (var i = 1; i <= preguntaCounter; i++) {
         var nombre = document.getElementById("nombre" + i).value;
         var pregunta = document.getElementById("pregunta" + i).value;
         var respuesta = document.getElementById("respuesta" + i).value;
 
-        resultadosContainer.innerHTML += `
-        <p><strong>Nombre de la pregunta ${i}:</strong> ${nombre}</p>
-        <p><strong>Pregunta ${i}:</strong> ${pregunta}</p>
-        <p><strong>Respuesta ${i}:</strong> ${respuesta}</p>
-        <hr>`;
+        console.log("Nombre:", nombre);
+        console.log("Pregunta:", pregunta);
+        console.log("Respuesta:", respuesta);
+
+        var tipoPreguntaSelect = document.getElementById("tipoPregunta" + i);
+        var tipoSeleccionado = tipoPreguntaSelect.value;
+
+        switch (tipoSeleccionado) {
+            case "tipo1":
+                y.innerHTML += `
+                <div class="tituloPreguntaContainer"> 
+                <h2> ${nombre} </h2>
+    
+                </div>
+                <p><strong>Pregunta ${i}:</strong> ${pregunta}</p>
+                <textarea id="respuestaUsuario" name="respuestaUsuario" rows="4" maxlength="150" placeholder="Escribe tu respuesta aquí"></textarea>
+                
+                <hr>`;
+                break;
+
+            case "tipo2":
+                y.innerHTML +=
+                `
+                <div class="tituloPreguntaContainer"> 
+                    <h2>${nombre}</h2>
+                </div>
+                <p><strong>Pregunta ${i}:</strong> ${pregunta}</p>
+                <label>Respuesta numérica:
+                    <input type="number" id="respuestaUsuario" name="respuestaUsuario${i}" required placeholder="Ingresa tu respuesta numérica">
+                </label>
+                
+                <hr>`;
+                break;
+
+            case "tipo3":
+                y.innerHTML += `
+                <div class="tituloPreguntaContainer"> 
+                    <h2>${nombre}</h2>
+                </div>
+                <p><strong>Pregunta ${i}:</strong> ${pregunta}</p>
+                <label>Opciones de respuesta:</label>
+                <ul>
+                    <div>
+                        <input type="text" name="enunciado1${i}" id="respuesta1${i}" placeholder="Opción 1" class="enunciado"> 
+                    </div>
+                    <label>
+                        <input type="radio" name="opcion${i}" value="opcion1"> 
+                    </label>
+        
+                    <div>
+                        <input type="text" name="enunciado2${i}" id="respuesta2${i}" placeholder="Opción 2" class="enunciado"> 
+                    </div>
+                    <label class="resp">
+                        <input type="radio" name="opcion${i}" value="opcion2"> 
+                    </label>
+        
+                    <div>
+                        <input type="text" name="enunciado3${i}" id="respuesta3${i}" placeholder="Opción 3" class="enunciado"> 
+                    </div>
+                    <label>
+                        <input type="radio" name="opcion${i}" value="opcion3"> 
+                    </label>
+        
+                    <div>
+                        <input type="text" name="enunciado4${i}" id="respuesta4${i}" placeholder="Opción 4" class="enunciado"> 
+                    </div>
+                    <label>
+                        <input type="radio" name="opcion${i}" value="opcion4"> 
+                    </label>
+                </ul>
+                
+                <hr>`;
+
+                break;
+
+
+
+            default:
+
+                break;
+        }
+    }
+
+
+    return y.outerHTML;
 }
+
+function guardarRespuestas() {
+    // Crear un objeto para almacenar las respuestas
+    var respuestas = [];
+
+    // Recorrer las preguntas y obtener las respuestas
+    for (var i = 1; i <= preguntaCounter; i++) {
+        var nombre = document.getElementById("nombre" + i).value;
+        var pregunta = document.getElementById("pregunta" + i).value;
+        var tipoPreguntaSelect = document.getElementById("tipoPregunta" + i);
+        var tipoSeleccionado = tipoPreguntaSelect.value;
+
+        switch (tipoSeleccionado) {
+            case "tipo1":
+                var respuesta = document.getElementById("respuesta" + i).value;
+                respuestas.push({
+                    nombre: nombre,
+                    pregunta: pregunta,
+                    respuesta: respuesta
+                });
+                break;
+
+            case "tipo2":
+                var respuesta = document.getElementById("respuesta" + i).value;
+                respuestas.push({
+                    nombre: nombre,
+                    pregunta: pregunta,
+                    respuesta: respuesta
+                });
+                break;
+
+            case "tipo3":
+                var opcionesRespuestas = [];
+                for (var j = 1; j <= 4; j++) {
+                    var enunciado = document.getElementById("respuesta" + j + i).value;
+                    opcionesRespuestas.push({
+                        enunciado: enunciado,
+                        seleccionada: document.querySelector('input[name="opcion' + i + '"]:checked').value
+                    });
+                }
+                respuestas.push({
+                    nombre: nombre,
+                    pregunta: pregunta,
+                    opcionesRespuestas: opcionesRespuestas
+                });
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    // Enviar las respuestas al archivo PHP mediante una solicitud Fetch
+    fetch('guardarRespuestas.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ respuestas: respuestas })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error al enviar respuestas al backend:', error));
 }
+
+
+
+
+
+

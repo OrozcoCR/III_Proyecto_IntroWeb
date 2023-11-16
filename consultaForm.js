@@ -37,6 +37,7 @@ var formData; // Variable to store form data
       // Display the HTML content as it comes
       const formHTMLContent = document.createElement("div");
       formHTMLContent.innerHTML = formData.contenidoHTML;
+      
 
       // Agrega los elementos al container
       formDetailContainer.appendChild(detailContainer);

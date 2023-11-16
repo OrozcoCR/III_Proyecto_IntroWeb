@@ -1,12 +1,67 @@
 [
     {
-        "nombre": "form1",
-        "descripcion": "vfdvfgb",
-        "contenidoHTML": "<form id=\"miFormulario\" method=\"post\">\n            <div class=\"tituloPreguntaContainer\">\n               \n                \n                   \n                \n            <\/div>\n\n            <div id=\"formatoPregunta\" class=\"formatoPregunta\"><\/div>\n\n            <div id=\"preguntasAdicionales\"><div class=\"preguntaContainer\"><label>Tipo de pregunta:<select name=\"tipoPregunta1\" id=\"tipoPregunta1\" hidden=\"true\"><option value=\"tipo1\">Pregunta tipo 1<\/option><option value=\"tipo2\">Pregunta tipo 2<\/option><option value=\"tipo3\">Pregunta tipo 3<\/option><\/select><\/label><div id=\"pregunta1\" class=\"formatoPregunta\">\n                <label>Nombre de la pregunta 1:\n                <input type=\"text\" id=\"nombre1\" name=\"nombre1\" class=\"tituloPregunta\" required=\"\" placeholder=\"Pregunta sin titulo\">\n                <\/label>\n\n                <label>Pregunta:\n                <input type=\"text\" id=\"pregunta1\" name=\"pregunta1\" class=\"preguntaCorta\" required=\"\" placeholder=\"Escribe tu pregunta corta aqu\u00ed\">\n                <\/label>\n\n                <label>Respuesta (m\u00e1x. 30 palabras):\n                <textarea id=\"respuesta1\" name=\"respuesta1\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <\/label><\/div><\/div><\/div>\n\n            <button type=\"button\" onclick=\"agregarPregunta()\" hidden=\"true\">+ Agregar Pregunta<\/button>\n\n            <button type=\"submit\" onclick=\"guardarFormulario()\" hidden=\"true\">Crear Formulario<\/button>\n            \n        <button>Registrar respuesta<\/button><\/form>"
+        "nombre": "",
+        "descripcion": "",
+        "contenidoHTML": null
     },
     {
-        "nombre": "f2",
-        "descripcion": "ffffffffff",
-        "contenidoHTML": "<form id=\"miFormulario\" method=\"post\">\n            <div class=\"tituloPreguntaContainer\">\n               \n                \n                   \n                \n            <\/div>\n\n            <div id=\"formatoPregunta\" class=\"formatoPregunta\"><\/div>\n\n            <div id=\"preguntasAdicionales\"><div class=\"preguntaContainer\"><label>Tipo de pregunta:<select name=\"tipoPregunta1\" id=\"tipoPregunta1\" hidden=\"true\"><option value=\"tipo1\">Pregunta tipo 1<\/option><option value=\"tipo2\">Pregunta tipo 2<\/option><option value=\"tipo3\">Pregunta tipo 3<\/option><\/select><\/label><div id=\"pregunta1\" class=\"formatoPregunta\">\n                <label>Nombre de la pregunta 1:\n                <input type=\"text\" id=\"nombre1\" name=\"nombre1\" class=\"tituloPregunta\" required=\"\" placeholder=\"Pregunta sin titulo\">\n                <\/label>\n\n                <label>Pregunta:\n                <input type=\"text\" id=\"pregunta1\" name=\"pregunta1\" class=\"preguntaCorta\" required=\"\" placeholder=\"Escribe tu pregunta corta aqu\u00ed\">\n                <\/label>\n\n                <label>Respuesta (m\u00e1x. 30 palabras):\n                <textarea id=\"respuesta1\" name=\"respuesta1\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <\/label><\/div><\/div><\/div>\n\n            <button type=\"button\" onclick=\"agregarPregunta()\" hidden=\"true\">+ Agregar Pregunta<\/button>\n\n            <button type=\"submit\" onclick=\"guardarFormulario()\" hidden=\"true\">Crear Formulario<\/button>\n            \n        <button>Registrar respuesta<\/button><\/form>"
+        "nombre": "",
+        "descripcion": "",
+        "contenidoHTML": null
+    },
+    {
+        "nombre": "asd",
+        "descripcion": "asd",
+        "contenidoHTML": null
+    },
+    {
+        "nombre": "df",
+        "descripcion": "df",
+        "contenidoHTML": null
+    },
+    {
+        "nombre": "mm",
+        "descripcion": "mm",
+        "contenidoHTML": null
+    },
+    {
+        "nombre": "d",
+        "descripcion": "d",
+        "contenidoHTML": "<form>\n\n            <div class=\"tituloPreguntaContainer\"> \n            <h2> d <\/h2>\n\n            <\/div>\n            <p><strong>Pregunta 1:<\/strong> d<\/p>\n            <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n            <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n            <hr><\/form>"
+    },
+    {
+        "nombre": "sdf",
+        "descripcion": "dsf",
+        "contenidoHTML": "<form>\n\n            <div class=\"tituloPreguntaContainer\"> \n            <h2> dsf <\/h2>\n\n            <\/div>\n            <p><strong>Pregunta 1:<\/strong> dsf<\/p>\n            <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n            <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n            <hr>\n\n            <div class=\"tituloPreguntaContainer\"> \n            <h2> dsf <\/h2>\n\n            <\/div>\n            <p><strong>Pregunta 2:<\/strong> dsf<\/p>\n            <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n            <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n            <hr><\/form>"
+    },
+    {
+        "nombre": "sd",
+        "descripcion": "sd",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                <h2> ds <\/h2>\n    \n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> sd<\/p>\n                <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr><\/form>"
+    },
+    {
+        "nombre": "vvv",
+        "descripcion": "vvv",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                <h2> vvv <\/h2>\n    \n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> vv<\/p>\n                <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr><\/form>"
+    },
+    {
+        "nombre": "fd",
+        "descripcion": "",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                    <h2>df<\/h2>\n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> df<\/p>\n                <label>Respuesta num\u00e9rica:\n                    <input type=\"number\" id=\"respuestaUsuario\" name=\"respuestaUsuario1\" required=\"\" placeholder=\"Ingresa tu respuesta num\u00e9rica\">\n                <\/label>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr><\/form>"
+    },
+    {
+        "nombre": "cccc",
+        "descripcion": "ccc",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                <h2> ccc <\/h2>\n    \n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> ccc<\/p>\n                <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr>\n                <div class=\"tituloPreguntaContainer\"> \n                    <h2>ccc<\/h2>\n                <\/div>\n                <p><strong>Pregunta 2:<\/strong> ccc<\/p>\n                <label>Respuesta num\u00e9rica:\n                    <input type=\"number\" id=\"respuestaUsuario\" name=\"respuestaUsuario2\" required=\"\" placeholder=\"Ingresa tu respuesta num\u00e9rica\">\n                <\/label>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr><\/form>"
+    },
+    {
+        "nombre": "hhhh",
+        "descripcion": "hhhh",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                <h2> hhhh <\/h2>\n    \n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> hhh<\/p>\n                <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                <button type=\"button\" id=\"GuardarRespuesta\">+ Agregar Pregunta<\/button>\n                <hr><\/form>"
+    },
+    {
+        "nombre": "111",
+        "descripcion": "111",
+        "contenidoHTML": "<form>\n                <div class=\"tituloPreguntaContainer\"> \n                <h2> 11 <\/h2>\n    \n                <\/div>\n                <p><strong>Pregunta 1:<\/strong> 11<\/p>\n                <textarea id=\"respuestaUsuario\" name=\"respuestaUsuario\" rows=\"4\" maxlength=\"150\" placeholder=\"Escribe tu respuesta aqu\u00ed\"><\/textarea>\n                \n                <hr><\/form>"
     }
 ]
